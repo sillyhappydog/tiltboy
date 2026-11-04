@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Sumire Pad: game-controller input settings. Amendment 19: this is TiltBoy's 「細かい調整」 / "Fine tuning"
+  page (手ざわりの調整, ボタンの割り当て, ボタンの並び, スティックの扱い). The controller-input switch is gone
+  (always on), the two guide switches became one on the home page (pref_tiltboy_home.xml), and the
+  modes, the diagnostics entry and the attribution moved there and to 「このアプリについて」.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="@string/pad_tuning_category_title">
+
+        <SeekBarPreference
+            android:defaultValue="45"
+            android:key="pad_left_select_threshold"
+            android:max="90"
+            android:summary="@string/pad_left_select_summary"
+            android:title="@string/pad_left_select_title"
+            app:min="10"
+            app:showSeekBarValue="true" />
+
+        <SeekBarPreference
+            android:defaultValue="30"
+            android:key="pad_left_release_threshold"
+            android:max="90"
+            android:summary="@string/pad_left_release_summary"
+            android:title="@string/pad_left_release_title"
+            app:min="5"
+            app:showSeekBarValue="true" />
+
+        <SeekBarPreference
+            android:defaultValue="60"
+            android:key="pad_flick_threshold"
+            android:max="95"
+            android:summary="@string/pad_flick_summary"
+            android:title="@string/pad_flick_title"
+            app:min="20"
+            app:showSeekBarValue="true" />
+
+        <SeekBarPreference
+            android:defaultValue="30"
+            android:key="pad_flick_return_threshold"
+            android:max="90"
+            android:summary="@string/pad_flick_return_summary"
+            android:title="@string/pad_flick_return_title"
+            app:min="5"
+            app:showSeekBarValue="true" />
+
+        <SeekBarPreference
+            android:defaultValue="50"
+            android:key="pad_trigger_threshold"
+            android:max="95"
+            android:summary="@string/pad_trigger_summary"
+            android:title="@string/pad_trigger_title"
+            app:min="10"
+            app:showSeekBarValue="true" />
+
+        <SeekBarPreference
+            android:defaultValue="400"
+            android:key="pad_repeat_delay_ms"
+            android:max="1500"
+            android:summary="@string/pad_repeat_delay_summary"
+            android:title="@string/pad_repeat_delay_title"
+            app:min="100"
+            app:seekBarIncrement="50"
+            app:showSeekBarValue="true" />
+
+        <SeekBarPreference
+            android:defaultValue="60"
+            android:key="pad_repeat_interval_ms"
+            android:max="400"
+            android:summary="@string/pad_repeat_interval_summary"
+            android:title="@string/pad_repeat_interval_title"
+            app:min="20"
+            app:seekBarIncrement="10"
+            app:showSeekBarValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="pad_roles_category"
+        android:summary="@string/pad_roles_category_summary"
+        android:title="@string/pad_roles_category_title">
+        <!-- One ListPreference per button is added from PadPreferenceFragment. -->
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="tiltboy_buttons_category"
+        android:title="@string/tiltboy_buttons_category_title">
+
+        <ListPreference
+            android:defaultValue="auto"
+            android:entries="@array/pad_face_layout_entries"
+            android:entryValues="@array/pad_face_layout_values"
+            android:key="pad_face_layout"
+            android:summary="@string/pad_face_layout_summary"
+            android:title="@string/pad_face_layout_title" />
+
+        <ListPreference
+            android:defaultValue="auto"
+            android:entries="@array/pad_stick_source_entries"
+            android:entryValues="@array/pad_stick_source_values"
+            android:key="pad_stick_source"
+            android:title="@string/pad_stick_source_title"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

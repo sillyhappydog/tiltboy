@@ -1,0 +1,156 @@
+package com.kazumaproject.markdownhelperkeyboard.skin
+
+import android.content.Context
+import android.content.res.Configuration
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.view.ContextThemeWrapper
+import android.view.View
+import android.view.ViewGroup
+import androidx.test.core.app.ApplicationProvider
+import com.kazumaproject.core.domain.skin.KeyboardSkinId
+import com.kazumaproject.core.ui.input_mode_witch.InputModeSwitch
+import com.kazumaproject.core.ui.skin.KeyboardSkinRegistry
+import com.kazumaproject.gojuon_keyboard.GojuonKeyboardView
+import com.kazumaproject.qwerty_keyboard.ui.QWERTYKeyboardView
+import com.kazumaproject.tenkey.TenKey
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.Robolectric
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
+import org.robolectric.annotation.GraphicsMode
+
+@RunWith(RobolectricTestRunner::class)
+@Config(sdk = [35])
+@GraphicsMode(GraphicsMode.Mode.NATIVE)
+class KeyboardSkinViewLifecycleTest {
+    private fun views(): List<ViewGroup> {
+        val context = ContextThemeWrapper(ApplicationProvider.getApplicationContext<Context>(),
+            com.kazumaproject.markdownhelperkeyboard.R.style.Theme_MarkdownKeyboard)
+        return listOf(TenKey(context, Robolectric.buildAttributeSet().build()),
+            GojuonKeyboardView(context), QWERTYKeyboardView(context))
+    }
+    private fun apply(view: View, id: KeyboardSkinId) {
+        val palette = KeyboardSkinRegistry.find(id)?.palette
+        view.javaClass.methods.single { it.name == "applyKeyboardTheme" }.invoke(view,
+            "custom", Configuration.UI_MODE_NIGHT_NO, false,
+            palette?.background ?: 0xffabcdef.toInt(), palette?.key ?: 0xffededed.toInt(),
+            palette?.specialKey ?: 0xffcccccc.toInt(), palette?.text ?: 0xff123456.toInt(),
+            palette?.specialText ?: 0xff234567.toInt(), false, false, 0xff000000.toInt(), 255, 1, id)
+        view.measure(View.MeasureSpec.makeMeasureSpec(1080, View.MeasureSpec.EXACTLY),
+            View.MeasureSpec.makeMeasureSpec(640, View.MeasureSpec.EXACTLY))
+        view.layout(0, 0, 1080, 640)
+    }
+    private fun geometry(view: View): List<Int> = buildList {
+        addAll(listOf(view.id, view.left, view.top, view.right, view.bottom))
+        if (view is ViewGroup) for (i in 0 until view.childCount) addAll(geometry(view.getChildAt(i)))
+    }
+    private fun pixels(view: View): Bitmap = Bitmap.createBitmap(1080,640,Bitmap.Config.ARGB_8888).also { view.draw(Canvas(it)) }
+
+    @Test fun skinCanBeAppliedOnFirstCreationBeforeAnyLegacyPopupExists() {
+        views().forEach { apply(it, KeyboardSkinId.CUPERTINO_DARK) }
+    }
+    @Test fun roundTripPreservesKeyBoundsAndRestoresLegacyRendering() {
+        views().forEach { view ->
+            apply(view, KeyboardSkinId.DEFAULT)
+            val before = pixels(view)
+            val bounds = geometry(view)
+            apply(view, KeyboardSkinId.CUPERTINO_LIGHT)
+            assertEquals(view.javaClass.simpleName, bounds, geometry(view))
+            apply(view, KeyboardSkinId.CUPERTINO_DARK)
+            assertEquals(view.javaClass.simpleName, bounds, geometry(view))
+            apply(view, KeyboardSkinId.CUPERTINO_CLASSIC)
+            assertEquals(view.javaClass.simpleName, bounds, geometry(view))
+            apply(view, KeyboardSkinId.DEFAULT)
+            assertTrue("Legacy pixels differ: ${view.javaClass.simpleName}", before.sameAs(pixels(view)))
+        }
+    }
+    @Test fun materialDefaultRestoresIconTintsAfterColdAndWarmSkins() {
+        for (cold in listOf(false, true)) {
+            val view = views().first() as TenKey
+            fun theme(id: KeyboardSkinId) {
+                val palette = KeyboardSkinRegistry.find(id)?.palette
+                view.applyKeyboardTheme(if (palette == null) "default" else "custom",
+                    Configuration.UI_MODE_NIGHT_YES, true,
+                    palette?.background ?: 0, palette?.key ?: 0, palette?.key ?: 0,
+                    palette?.text ?: 0, palette?.text ?: 0, false, false, 0, 255, 1, id)
+            }
+            val button = view.findViewById<android.widget.ImageView>(com.kazumaproject.tenkey.R.id.key_delete)
+            val original = androidx.core.widget.ImageViewCompat.getImageTintList(button)
+            if (!cold) theme(KeyboardSkinId.DEFAULT)
+            theme(KeyboardSkinId.CUPERTINO_LIGHT)
+            theme(KeyboardSkinId.CUPERTINO_DARK)
+            theme(KeyboardSkinId.CUPERTINO_CLASSIC)
+            theme(KeyboardSkinId.DEFAULT)
+            assertEquals(original, androidx.core.widget.ImageViewCompat.getImageTintList(button))
+        }
+    }
+
+    @Test fun skinAppliesModeLabelRenderingToTenKeyAndGojuonAndDefaultRestoresVectors() {
+        views().take(2).forEach { view ->
+            val modeSwitchId = if (view is TenKey) {
+                com.kazumaproject.tenkey.R.id.key_switch_key_mode
+            } else {
+                com.kazumaproject.gojuon_keyboard.R.id.key_switch_key_mode
+            }
+            val modeSwitch = view.findViewById<InputModeSwitch>(modeSwitchId)
+
+            fun modeIconPixels(): Bitmap {
+                val icon = requireNotNull(modeSwitch.drawable)
+                return Bitmap.createBitmap(240, 120, Bitmap.Config.ARGB_8888).also {
+                    val bounds = android.graphics.Rect(icon.bounds)
+                    try {
+                        icon.setBounds(0, 0, it.width, it.height)
+                        icon.draw(Canvas(it))
+                    } finally {
+                        icon.bounds = bounds
+                    }
+                }
+            }
+            apply(view, KeyboardSkinId.DEFAULT)
+            val original = modeIconPixels()
+            apply(view, KeyboardSkinId.CUPERTINO_LIGHT)
+            val skinned = modeIconPixels()
+            val labelRgb = requireNotNull(KeyboardSkinRegistry.find(KeyboardSkinId.CUPERTINO_LIGHT))
+                .palette.specialText and 0x00ffffff
+            val colors = IntArray(skinned.width * skinned.height)
+            skinned.getPixels(colors, 0, skinned.width, 0, 0, skinned.width, skinned.height)
+            assertTrue("${view.javaClass.simpleName} should draw an opaque selected label",
+                colors.any { (it and 0x00ffffff) == labelRgb && Color.alpha(it) == 255 })
+            assertTrue("${view.javaClass.simpleName} should draw dimmed inactive labels",
+                colors.any { (it and 0x00ffffff) == labelRgb && Color.alpha(it) in 1..220 })
+
+            apply(view, KeyboardSkinId.DEFAULT)
+            assertTrue("${view.javaClass.simpleName} should restore its vector mode icon",
+                original.sameAs(modeIconPixels()))
+        }
+    }
+
+    @Test fun materialDefaultPixelsReturnAfterCupertinoForEveryBuiltInKeyboard() {
+        views().forEach { view ->
+            fun theme(id: KeyboardSkinId) {
+                val palette = KeyboardSkinRegistry.find(id)?.palette
+                view.javaClass.methods.single { it.name == "applyKeyboardTheme" }.invoke(view,
+                    if (palette == null) "default" else "custom", Configuration.UI_MODE_NIGHT_NO, true,
+                    palette?.background ?: 0, palette?.key ?: 0, palette?.key ?: 0,
+                    palette?.text ?: 0, palette?.text ?: 0, false, false, 0, 255, 1, id)
+                view.measure(View.MeasureSpec.makeMeasureSpec(1080, View.MeasureSpec.EXACTLY),
+                    View.MeasureSpec.makeMeasureSpec(640, View.MeasureSpec.EXACTLY))
+                view.layout(0, 0, 1080, 640)
+            }
+            theme(KeyboardSkinId.DEFAULT)
+            val before = pixels(view)
+            theme(KeyboardSkinId.CUPERTINO_LIGHT)
+            theme(KeyboardSkinId.CUPERTINO_DARK)
+            theme(KeyboardSkinId.CUPERTINO_CLASSIC)
+            theme(KeyboardSkinId.DEFAULT)
+            val after = pixels(view)
+            assertTrue("Material Default pixels differ: ${view.javaClass.simpleName}", before.sameAs(after))
+        }
+    }
+
+}

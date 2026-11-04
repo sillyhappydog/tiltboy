@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  TiltBoy (amendment 19): 「このアプリについて」 / "About". The version, Sumire's complete licence
+  screen (the app, libraries and dictionaries; OpenSourceFragment, unchanged), the same screen
+  opened at the dictionaries, and the attribution line.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Preference
+        android:key="tiltboy_version"
+        android:persistent="false"
+        android:selectable="false"
+        android:title="@string/tiltboy_version_title"
+        app:iconSpaceReserved="false" />
+
+    <Preference
+        android:key="tiltboy_licences"
+        android:persistent="false"
+        android:summary="@string/tiltboy_licences_summary"
+        android:title="@string/tiltboy_licences_title"
+        app:iconSpaceReserved="false" />
+
+    <Preference
+        android:key="tiltboy_dictionary_licences"
+        android:persistent="false"
+        android:summary="@string/tiltboy_dictionary_licences_summary"
+        android:title="@string/tiltboy_dictionary_licences_title"
+        app:iconSpaceReserved="false" />
+
+    <Preference
+        android:key="tiltboy_attribution"
+        android:persistent="false"
+        android:selectable="false"
+        android:summary="@string/pad_attribution"
+        app:iconSpaceReserved="false" />
+
+</PreferenceScreen>

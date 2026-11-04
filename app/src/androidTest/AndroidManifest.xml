@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <activity android:name="com.kazumaproject.markdownhelperkeyboard.mushroom.MushroomPluginActivity"
+            android:label="Mushroom test plugin" android:exported="true"
+            android:theme="@android:style/Theme.Material.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="com.adamrocker.android.simeji.ACTION_INTERCEPT" />
+                <category android:name="com.adamrocker.android.simeji.REPLACE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <provider
+            android:name="com.kazumaproject.markdownhelperkeyboard.setting_activity.SettingsBackupTestProvider"
+            android:authorities="com.kazumaproject.markdownhelperkeyboard.settingsbackuptest"
+            android:exported="true" />
+        <provider
+            android:name="com.kazumaproject.markdownhelperkeyboard.local_font.LocalFontBlockingTestProvider"
+            android:authorities="com.kazumaproject.markdownhelperkeyboard.lite.localfonttest"
+            android:exported="true" />
+        <activity
+            android:name="com.kazumaproject.markdownhelperkeyboard.qa.InlineAutofillLoginActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Material.Light.NoActionBar"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
+    </application>
+</manifest>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Per-app language (Android 13+, amendment 12): Settings > Apps > Sumire Pad > Language,
+     or from adb with: cmd locale set-app-locales PACKAGE, locales en-US -->
+<locale-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <locale android:name="en" />
+    <locale android:name="ja" />
+</locale-config>

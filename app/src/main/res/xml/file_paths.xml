@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <cache-path
+        name="shared_images"
+        path="images/" />
+    <!-- Sumire Pad: controller diagnostics logs -->
+    <external-files-path
+        name="pad_logs"
+        path="pad_logs/" />
+</paths>

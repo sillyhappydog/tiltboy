@@ -1,0 +1,39 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/.idea/deploymentTargetDropDown.xml
+/.idea/deploymentTargetSelector.xml
+.idea/copilotDiffState.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+app/release
+.gradle-user-home
+.idea/copilot.data.migration.ask2agent.xml
+app/fullStandard/
+app/liteFdroid/
+app/liteStandard
+.idea/gradle.xml
+
+
+# Download cache for the pinned dictionary import tool.
+.cache/classified-distribution/
+
+tools/classified-dictionaries/__pycache__/
+
+# TiltBoy: never commit signing keys or built APKs to this public repository
+/keystore/
+*.jks
+*.keystore
+/apk/
+# Kotlin compiler daemon session files
+.kotlin/

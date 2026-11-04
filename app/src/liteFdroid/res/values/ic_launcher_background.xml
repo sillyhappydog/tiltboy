@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TiltBoy icon (2026-11-05): the user's logo on yellow #FCDF47 (sampled from the user's reference). Overrides lite/ for the liteFdroid (TiltBoy) build only. -->
+<resources>
+    <color name="ic_launcher_background">#FCDF47</color>
+</resources>

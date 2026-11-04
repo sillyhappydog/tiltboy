@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  TiltBoy (amendment 19): the settings home, the launcher's start page. Only these items, in this
+  order (docs/cloud-tasks/assets/2026-11-02_tiltboy_settings_mock.png). TiltBoyHomeFragment wires
+  the clicks; pad_modes and pad_guide are stored settings (PadPreferences).
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:key="tiltboy_cat_start"
+        android:title="@string/tiltboy_cat_start"
+        app:iconSpaceReserved="false">
+
+        <!-- v14: asked first; the same setting as 細かい調整's ボタンの並び. No defaultValue ("auto" = not picked). -->
+        <com.kazumaproject.markdownhelperkeyboard.pad.ui.FaceLayoutPickerPreference
+            android:key="pad_face_layout"
+            android:title="@string/tiltboy_face_title"
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            android:key="tiltboy_setup"
+            android:persistent="false"
+            android:title="@string/tiltboy_setup_title"
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            android:key="tiltboy_try"
+            android:persistent="false"
+            android:summary="@string/tiltboy_try_summary"
+            android:title="@string/tiltboy_try_title"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="tiltboy_cat_typing"
+        android:title="@string/tiltboy_cat_typing"
+        app:iconSpaceReserved="false">
+
+        <MultiSelectListPreference
+            android:entries="@array/pad_modes_entries"
+            android:entryValues="@array/pad_modes_values"
+            android:key="pad_modes"
+            android:title="@string/tiltboy_modes_title"
+            app:iconSpaceReserved="false" />
+
+        <!-- No defaultValue: inflation would store it before the migration (PadPreferences.migrateGuide). -->
+        <SwitchPreferenceCompat
+            android:key="pad_guide"
+            android:summary="@string/tiltboy_guide_summary"
+            android:title="@string/tiltboy_guide_title"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="tiltboy_cat_words"
+        android:title="@string/tiltboy_cat_words"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            android:key="tiltboy_words"
+            android:persistent="false"
+            android:summary="@string/tiltboy_words_summary"
+            android:title="@string/tiltboy_words_title"
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            android:key="tiltboy_clear_learning"
+            android:persistent="false"
+            android:title="@string/tiltboy_clear_learning_title"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="tiltboy_cat_more"
+        android:title="@string/tiltboy_cat_more"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            android:key="tiltboy_fine_tuning"
+            android:persistent="false"
+            android:summary="@string/tiltboy_fine_tuning_summary"
+            android:title="@string/tiltboy_fine_tuning_title"
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            android:key="tiltboy_about"
+            android:persistent="false"
+            android:summary="@string/tiltboy_about_summary"
+            android:title="@string/tiltboy_about_title"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

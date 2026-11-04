@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  TiltBoy (amendment 19): the liteFdroid variant is TiltBoy. It has no voice input (no voice key,
+  pinned off in pad/TiltBoyPolicy.kt), so it does not ask for the microphone. Removing the
+  permission here keeps Sumire's own manifest unchanged. CI checks the APK with
+  `aapt2 dump permissions` (only VIBRATE and the app's own receiver permission).
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission
+        android:name="android.permission.RECORD_AUDIO"
+        tools:node="remove" />
+
+</manifest>

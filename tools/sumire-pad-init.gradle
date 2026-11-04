@@ -1,0 +1,60 @@
+// Sumire Pad Gradle init script (installed to ~/.gradle/init.d/ by tools/setup.sh and also
+// passed with -I by tools/build.sh / tools/test.sh; it is idempotent).
+//
+// 1. Maven Central through the cloud session's egress proxy answers HTTP 429 (Too Many
+//    Requests) under load, and Gradle disables a repository for the rest of the build after
+//    such an error. Google keeps a full mirror of Maven Central on GCS; put it first so Central
+//    only gets the leftovers.
+// 2. Optional: when the environment variable SUMIRE_PAD_REDIRECT_GOOGLE=1 is set (the scripts
+//    set it when https://dl.google.com is unreachable), rewrite Gradle's google() repository
+//    to https://maven.google.com/. Note that maven.google.com itself redirects to dl.google.com,
+//    so this only helps on networks that allow the redirect target.
+// Nothing in the project files changes, so the upstream build stays untouched.
+
+def CENTRAL_MIRROR = "https://maven-central.storage-download.googleapis.com/maven2/"
+def redirectGoogle = System.getenv("SUMIRE_PAD_REDIRECT_GOOGLE") == "1"
+
+def fix = { repos ->
+    def alreadyHasMirror = repos.any { r ->
+        r instanceof org.gradle.api.artifacts.repositories.MavenArtifactRepository && r.url.toString() == CENTRAL_MIRROR
+    }
+    def hasCentral = repos.any { r ->
+        r instanceof org.gradle.api.artifacts.repositories.MavenArtifactRepository &&
+            r.url.toString().startsWith("https://repo.maven.apache.org/maven2")
+    }
+    if (hasCentral && !alreadyHasMirror) {
+        def mirror = repos.maven { repo ->
+            repo.name = "SumirePadCentralMirror"
+            repo.url = CENTRAL_MIRROR
+        }
+        repos.remove(mirror)
+        repos.addFirst(mirror)
+    }
+    if (redirectGoogle) {
+        repos.configureEach { repo ->
+            if (repo instanceof org.gradle.api.artifacts.repositories.MavenArtifactRepository) {
+                def u = repo.url.toString()
+                if (u.startsWith("https://dl.google.com/dl/android/maven2") || u.startsWith("https://dl.google.com/android/maven2")) {
+                    repo.url = "https://maven.google.com/"
+                }
+            }
+        }
+    }
+}
+
+settingsEvaluated { settings ->
+    fix(settings.pluginManagement.repositories)
+    fix(settings.dependencyResolutionManagement.repositories)
+    fix(settings.buildscript.repositories)
+}
+
+allprojects {
+    fix(repositories)
+    fix(buildscript.repositories)
+    // 3. Robolectric downloads its android-all jars itself (HttpURLConnection, Maven Central).
+    //    Point it at the same mirror so unit tests do not die on a 429 from Central.
+    tasks.withType(Test).configureEach { t ->
+        t.systemProperty("robolectric.dependency.repo.id", "sumire-pad-central-mirror")
+        t.systemProperty("robolectric.dependency.repo.url", CENTRAL_MIRROR.replaceAll("/\$", ""))
+    }
+}

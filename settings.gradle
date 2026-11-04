@@ -1,0 +1,34 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "MarkdownHelperKeyboard"
+include ':app'
+include ':flexbox'
+include ':tenkey'
+include ':symbol_keyboard'
+include ':core'
+include ':gojuon_keyboard'
+include ':morse_keyboard'
+include ':qwerty_keyboard'
+include ':custom_keyboard'
+include ':zenz'
+include ':pad_input' // Sumire Pad: controller input engine
+
+// Opt-in device laboratory; never packaged with the keyboard.
+if (providers.gradleProperty('enterParityLab').isPresent()) {
+    include ':enter-parity-lab'
+}

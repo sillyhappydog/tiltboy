@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sumire Pad: game-controller input, Japanese. The English default is values/pad_strings.xml (same keys, checked by PadStringsTest). -->
+<resources>
+    <string name="pad_face_layout_title">ボタンの並び（案内の表示）</string>
+    <string name="pad_face_layout_summary">案内に描く A / B / X / Y の位置です。働きは変わりません。自動では、Anbernic の本体（RG477V など）と AYN Thor は任天堂式になります。</string>
+    <string-array name="pad_face_layout_entries">
+        <item>自動</item>
+        <item>任天堂式（上が X）</item>
+        <item>Xbox 式（上が Y）</item>
+    </string-array>
+    <string-array name="pad_face_layout_values">
+        <item>auto</item>
+        <item>nintendo</item>
+        <item>xbox</item>
+    </string-array>
+    <string name="pad_stick_source_title">スティックの扱い</string>
+    <string-array name="pad_stick_source_entries">
+        <item>自動（スティックが動くまでは十字キー配置）</item>
+        <item>常にスティックを使う</item>
+        <item>常に十字キー配置を使う</item>
+    </string-array>
+    <string-array name="pad_stick_source_values">
+        <item>auto</item>
+        <item>sticks</item>
+        <item>dpad</item>
+    </string-array>
+
+    <string name="pad_tuning_category_title">手ざわりの調整</string>
+    <string name="pad_left_select_title">左スティック：キーが選ばれる倒し量（%）</string>
+    <string name="pad_left_select_summary">これより大きく倒すとキーが選ばれます。小さいほど敏感になります。</string>
+    <string name="pad_left_release_title">左スティック：中央（あ）に戻る倒し量（%）</string>
+    <string name="pad_left_release_summary">これより小さくなると中央＝「あ」に戻ります。上の値より小さくしてください。</string>
+    <string name="pad_flick_title">右スティック：フリックと見なす倒し量（%）</string>
+    <string name="pad_flick_summary">これより大きく倒すとフリックになります。</string>
+    <string name="pad_flick_return_title">右スティック：戻ったと見なす倒し量（%）</string>
+    <string name="pad_flick_return_summary">倒したあと、これより小さく戻った瞬間に文字が入ります。</string>
+    <string name="pad_trigger_title">L2 / R2 がアナログの場合：押し込み量（%）</string>
+    <string name="pad_trigger_summary">端末が L2 / R2 をボタンでなく軸として報告するときだけ使われます。</string>
+    <string name="pad_repeat_delay_title">バックスペース長押し：連続削除が始まるまで（ミリ秒）</string>
+    <string name="pad_repeat_delay_summary">B（または右スティック↓）を押し続けると連続で消えます。</string>
+    <string name="pad_repeat_interval_title">バックスペース長押し：連続削除の間隔（ミリ秒）</string>
+    <string name="pad_repeat_interval_summary">小さいほど速く消えます。</string>
+
+    <string name="pad_roles_category_title">ボタンの割り当て</string>
+    <string name="pad_roles_category_summary">どのモードでも同じ割り当てです。「押しながら」の役目は、押している間だけ打つ文字を変えます（そのモードで働かない役目は、案内では空の帯になります）。記号 は押している間、左スティックで記号を打ちます。半濁点・小文字の役目は、英字では押している間 数字 になります。L3 / R3 は前 / 次のモードへ（スティックを倒さずに押して離したときだけ）。十字キーはカーソル移動。変換中: ←→ 候補、↑ 範囲を長く、↓ 範囲を短く。</string>
+    <string name="pad_role_confirm">決定（変換中は確定、ほかは Enter）</string>
+    <string name="pad_role_backspace">1 文字消す（変換中も変換をやめて 1 文字消す）</string>
+    <string name="pad_role_space">スペース</string>
+    <string name="pad_role_convert_next">変換 / 次の候補</string>
+    <string name="pad_role_previous_candidate">前の候補</string>
+    <string name="pad_role_touch_keyboard">タッチのキーボード（案内と、そのモードのタッチのキーを切り替え）。長押しでキーボードを隠す</string>
+    <string name="pad_role_hold_dakuten">押しながら：濁点（か→が）。英字では大文字</string>
+    <string name="pad_role_hold_handakuten">押しながら：半濁点（は→ぱ）。英字では数字</string>
+    <string name="pad_role_hold_small">押しながら：小文字（つ→っ、や→ゃ）。英字では数字</string>
+    <string name="pad_role_hold_small_or_handakuten">押しながら：小文字、は行は半濁点。英字では数字</string>
+    <string name="pad_role_hold_uppercase">押しながら：大文字（英字）</string>
+    <string name="pad_role_hide">キーボードを隠す</string>
+    <string name="pad_role_emoji_jump">絵文字の一覧（一覧では元の文字のモードへ戻る）</string>
+    <string name="pad_emoji_list_strip">十字 %1$s ／ %2$s %3$s ／ %4$s %5$s ／ %6$s カテゴリー</string>
+    <string name="pad_role_none">なし</string>
+
+    <!-- 診断画面 -->
+    <string name="pad_diag_title">コントローラーの確認</string>
+    <string name="pad_diag_intro">スティックを動かし、ボタンを押してください。届いた信号と、キーボードがどう判断するかが下に流れます。入力欄をタップすると、実際にキーボードで打つテストができます。</string>
+    <string name="pad_diag_test_field_hint">ここをタップしてコントローラーで入力</string>
+    <string name="pad_diag_status_waiting">コントローラーの信号を待っています…</string>
+    <string name="pad_diag_clear">消去</string>
+    <string name="pad_diag_save">記録を保存して共有</string>
+    <string name="pad_diag_saved">保存しました（%1$d 行）: %2$s</string>
+    <string name="pad_diag_save_warning_few">まだ %1$d 行しかありません。スティックを動かしボタンを押してから保存すると役に立ちます。</string>
+    <string name="pad_diag_no_devices">Android がゲームコントローラーを見つけていません（GAMEPAD / JOYSTICK の入力機器がありません）。</string>
+    <string name="pad_diag_devices">見つかったコントローラー: %1$s</string>
+    <string name="pad_diag_session_lines">この画面を開いてからの記録: %1$d 行（うちキーボード側 %2$d 行）</string>
+
+    <!-- TiltBoy が有効 / 選択されていないときの案内 -->
+    <string name="pad_ime_banner_not_enabled">TiltBoy はまだキーボードとして有効になっていません。コントローラーで文字を打つには、まず有効にして、次に切り替えてください。</string>
+    <string name="pad_ime_banner_not_selected">今のキーボードは TiltBoy ではありません（%1$s）。コントローラーの操作はキーボードに届きません。切り替えてください。</string>
+    <string name="pad_ime_enable_button">TiltBoy を有効にする</string>
+    <string name="pad_ime_switch_button">キーボードを TiltBoy に切り替える</string>
+    <string name="pad_ime_banner_ok">キーボードは TiltBoy です。</string>
+
+    <!-- 手順つきチェック -->
+    <string name="pad_check_title">手順つきチェック</string>
+    <string name="pad_check_start">チェックを始める</string>
+    <string name="pad_check_cancel">やめる</string>
+    <string name="pad_check_step1">1/6 左スティックをぐるっと一周回してください</string>
+    <string name="pad_check_step2">2/6 右スティックをぐるっと一周回してください</string>
+    <string name="pad_check_step3">3/6 A → B → X → Y の順に押してください</string>
+    <string name="pad_check_step4">4/6 左スティックを押し込んでください（L3）。届かなければ「届かない（次へ）」</string>
+    <string name="pad_check_step5">5/6 右スティックを押し込んでください（R3）。届かなければ「届かない（次へ）」</string>
+    <string name="pad_check_step6">6/6 上の入力欄をタップしてキーボードを出し、コントローラーで「%1$s」を打ってください（左スティック↑のまま右スティックを←に倒して戻す）</string>
+    <string name="pad_check_skip">届かない（次へ）</string>
+    <string name="pad_check_result_clicks">スティックの押し込み: L3 %1$s / R3 %2$s</string>
+    <string name="pad_check_r3_missing">R3（右スティックの押し込み）が届いていません。モードは L3（前のモードへ）で切り替えられます。ほかはそのまま使えます。</string>
+    <string name="pad_check_r3_ok">R3 が届いています。R3 で次のモード、L3 で前のモードへ切り替えられます（スティックを倒さずに押して離す）。</string>
+    <string name="pad_check_done">チェック完了。記録を保存しました（%1$d 行）。「記録を保存して共有」で送れます。</string>
+    <string name="pad_check_result_sticks">スティック: 画面側 %1$s / キーボード側 %2$s</string>
+    <string name="pad_check_result_buttons">ボタン: %1$s</string>
+    <string name="pad_check_result_typed">「%1$s」の入力: %2$s</string>
+    <string name="pad_check_reached">届いた</string>
+    <string name="pad_check_not_reached">届いていない</string>
+    <string name="pad_check_progress">進み具合: %1$s</string>
+
+    <!-- モード（追加のお願い 12） -->
+    <string name="pad_modes_need_one">モードは 1 つ以上選んでください。</string>
+    <string-array name="pad_modes_entries">
+        <item>かな</item>
+        <item>英字</item>
+        <item>数字</item>
+    </string-array>
+    <string-array name="pad_modes_values">
+        <item>kana</item>
+        <item>english</item>
+        <item>number</item>
+    </string-array>
+    <string name="pad_modes_separator">・</string>
+    <string name="pad_role_hold_dakuten_nokana">押しながら：大文字（英字）</string>
+    <string name="pad_roles_category_summary_nokana">どのモードでも同じ割り当てです。「押しながら」の役目は、押している間だけ打つ文字を変えます。記号 は押している間、左スティックで記号を打ちます。123 は押している間、英字で数字を打ちます。L3 / R3 は前 / 次のモードへ（スティックを倒さずに押して離したときだけ）。</string>
+    <!-- 追加のお願い 22：かなを使わないときの 半濁点・小文字 の役目（英字では数字） -->
+    <string name="pad_role_hold_handakuten_nokana">押しながら：数字（英字）。かなでは半濁点</string>
+    <string name="pad_role_hold_small_nokana">押しながら：数字（英字）。かなでは小文字</string>
+    <string name="pad_role_hold_small_or_handakuten_nokana">押しながら：数字（英字）。かなでは小文字・半濁点</string>
+    <string name="pad_role_kana_only">なし（かな専用の役目）</string>
+    <string name="pad_button_l3">L3（左スティックの押し込み）</string>
+    <string name="pad_button_r3">R3（右スティックの押し込み）</string>
+    <string name="pad_check_reached_detail">%1$s（%2$s）</string>
+
+    <!-- 案内の言葉（コントローラーの全体図。1 語ずつ） -->
+    <string name="pad_word_tap_emoji">左の絵文字</string>
+    <string name="pad_word_confirm">決定</string>
+    <string name="pad_word_insert">入れる</string>
+    <string name="pad_word_backspace">消す</string>
+    <string name="pad_word_space">空白</string>
+    <string name="pad_word_convert">変換</string>
+    <string name="pad_word_next">候補</string>
+    <string name="pad_word_previous">前の候補</string>
+    <string name="pad_word_mode">モード</string>
+    <string name="pad_word_to_text">文字へ</string>
+    <string name="pad_word_hide">隠す</string>
+    <string name="pad_word_emoji">絵文字</string>
+    <string name="pad_word_list">一覧</string>
+    <string name="pad_word_back">戻る</string>
+    <string name="pad_word_dakuten">濁点</string>
+    <string name="pad_word_uppercase">大文字</string>
+    <string name="pad_word_handakuten">半濁点</string>
+    <string name="pad_word_small">小文字</string>
+    <string name="pad_word_small_or_handakuten">小文字・゜</string>
+    <string name="pad_word_bar_kana">わをん 記号</string>
+    <string name="pad_word_bar_english">記号</string>
+    <string name="pad_word_bar_number">記号</string>
+    <string name="pad_word_bar_emoji">次の 32 個</string>
+    <string name="pad_word_cursor">カーソル</string>
+    <string name="pad_word_move">移動</string>
+    <string name="pad_word_key">キー</string>
+    <string name="pad_word_previous_category">前のカテゴリー</string>
+    <string name="pad_word_next_category">次のカテゴリー</string>
+    <string name="pad_word_vowel_a">あ段</string>
+    <string name="pad_word_vowel_i">い段</string>
+    <string name="pad_word_vowel_u">う段</string>
+    <string name="pad_word_vowel_e">え段</string>
+    <string name="pad_word_vowel_o">お段</string>
+    <string name="pad_word_char_center">中央の文字</string>
+    <string name="pad_word_char_left">左の文字</string>
+    <string name="pad_word_char_up">上の文字</string>
+    <string name="pad_word_char_right">右の文字</string>
+    <string name="pad_word_char_down">下の文字</string>
+    <string name="pad_word_emoji_left">左の絵文字</string>
+    <string name="pad_word_emoji_up">上の絵文字</string>
+    <string name="pad_word_emoji_right">右の絵文字</string>
+    <string name="pad_word_emoji_down">下の絵文字</string>
+
+    <!-- 追加のお願い 15：かなの右スティックと TiltBoy の出どころ -->
+    <string name="pad_attribution">TiltBoy は Sumire 日本語キーボード（KazumaProject, MIT License）をもとにしています</string>
+
+    <!-- 追加のお願い 21：R2 はどのモードでも 記号（かなの や/わ は右下のキーへ）。追加のお願い 22：英字の L1 / R1 は 123 -->
+    <string name="pad_role_ya_wa_layer">記号（押しながら左スティックで記号を打つ）</string>
+    <string name="pad_word_symbols">記号</string>
+    <string name="pad_word_number_hold">123</string>
+
+    <!-- 追加のお願い 18：L3 / R3 でモード、英字・数字の 記号（R2） -->
+    <string name="pad_role_mode_previous">前のモードへ（「モード」でチェックしたものを逆順に。離したときに切り替え。スティックを倒したままの押し込みは無視）</string>
+    <string name="pad_role_mode_next">次のモードへ（「モード」でチェックしたものを順に。離したときに切り替え。スティックを倒したままの押し込みは無視）</string>
+    <string name="pad_word_to_kana">かなへ</string>
+    <string name="pad_word_to_english">英字へ</string>
+    <string name="pad_word_to_number">数字へ</string>
+    <!-- 追加のお願い 20：Select はタッチのキーボード -->
+    <string name="pad_word_touch">タッチ</string>
+
+    <!-- 追加のお願い 19：TiltBoy の設定ページ（ランチャーから開く画面）、「細かい調整」と「このアプリについて」 -->
+    <string name="tiltboy_home_title">TiltBoy</string>
+    <string name="tiltboy_cat_start">はじめに</string>
+    <string name="tiltboy_setup_title">キーボードを使えるようにする</string>
+    <string name="tiltboy_face_title">ボタンの並び</string>
+    <string name="tiltboy_face_pick">本体と同じ方を押してください</string>
+    <string name="tiltboy_setup_done">済み</string>
+    <string name="tiltboy_setup_not_enabled">まだ有効になっていません。押して TiltBoy を有効にし、次にキーボードを切り替えます</string>
+    <string name="tiltboy_setup_not_current">有効ですが、使うキーボードになっていません。押して TiltBoy に切り替えます</string>
+    <string name="tiltboy_try_title">試し打ち・コントローラーの確認</string>
+    <string name="tiltboy_try_summary">ここで打って、スティックやボタンが届いているか見られます</string>
+    <string name="tiltboy_cat_typing">打ち方</string>
+    <string name="tiltboy_modes_title">使うモード</string>
+    <string name="tiltboy_guide_title">画面に案内を出す</string>
+    <string name="tiltboy_guide_summary">コントローラーがつながっているときは、最初から案内を出す。Select でタッチのキーボードと切り替え</string>
+    <string name="tiltboy_cat_words">ことば</string>
+    <string name="tiltboy_words_title">単語の登録</string>
+    <string name="tiltboy_words_summary">名前など、変換で出ないことばを登録</string>
+    <string name="tiltboy_clear_learning_title">変換の学習を消す</string>
+    <string name="tiltboy_clear_learning_message">これまでの入力から覚えた変換をすべて消します。元に戻せません。登録した単語は残ります。</string>
+    <string name="tiltboy_clear_learning_confirm">消す</string>
+    <string name="tiltboy_clear_learning_cancel">やめる</string>
+    <string name="tiltboy_clear_learning_done">変換の学習を消しました</string>
+    <string name="tiltboy_cat_more">そのほか</string>
+    <string name="tiltboy_fine_tuning_title">細かい調整</string>
+    <string name="tiltboy_fine_tuning_summary">手ざわり（倒す量など）・ボタンの割り当て</string>
+    <string name="tiltboy_about_title">このアプリについて</string>
+    <string name="tiltboy_about_summary">バージョン・ライセンス</string>
+    <string name="tiltboy_version_title">バージョン</string>
+    <string name="tiltboy_licences_title">オープンソースライセンス</string>
+    <string name="tiltboy_licences_summary">このアプリ、使っているライブラリ、辞書のライセンス（全文）</string>
+    <string name="tiltboy_dictionary_licences_title">辞書のライセンス</string>
+    <string name="tiltboy_dictionary_licences_summary">変換に使っている辞書</string>
+    <string name="tiltboy_buttons_category_title">ボタンとスティック</string>
+</resources>

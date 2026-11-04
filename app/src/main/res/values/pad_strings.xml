@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sumire Pad: game-controller input. English, the default; values-ja/pad_strings.xml has the same keys (PadStringsTest). -->
+<resources>
+    <string name="pad_face_layout_title">Button layout (guide only)</string>
+    <string name="pad_face_layout_summary">Where the guide draws A / B / X / Y. The buttons keep their roles. Auto picks the Nintendo layout on Anbernic devices (RG477V and others) and the AYN Thor.</string>
+    <string-array name="pad_face_layout_entries">
+        <item>Auto</item>
+        <item>Nintendo (X on top)</item>
+        <item>Xbox (Y on top)</item>
+    </string-array>
+    <string-array name="pad_face_layout_values">
+        <item>auto</item>
+        <item>nintendo</item>
+        <item>xbox</item>
+    </string-array>
+    <string name="pad_stick_source_title">Sticks</string>
+    <string-array name="pad_stick_source_entries">
+        <item>Auto (D-pad layout until a stick moves)</item>
+        <item>Always use the sticks</item>
+        <item>Always use the D-pad layout</item>
+    </string-array>
+    <string-array name="pad_stick_source_values">
+        <item>auto</item>
+        <item>sticks</item>
+        <item>dpad</item>
+    </string-array>
+    <string name="pad_tuning_category_title">Feel</string>
+    <string name="pad_left_select_title">Left stick: tilt that selects a key (%)</string>
+    <string name="pad_left_select_summary">Tilt further than this to select a key. Smaller is more sensitive.</string>
+    <string name="pad_left_release_title">Left stick: tilt that returns to the center key (%)</string>
+    <string name="pad_left_release_summary">Below this the center key is selected again. Keep it smaller than the value above.</string>
+    <string name="pad_flick_title">Right stick: tilt that counts as a flick (%)</string>
+    <string name="pad_flick_summary">Tilt further than this to flick.</string>
+    <string name="pad_flick_return_title">Right stick: tilt that counts as back (%)</string>
+    <string name="pad_flick_return_summary">The character is typed the moment the stick comes back below this.</string>
+    <string name="pad_trigger_title">Analog L2 / R2: press depth (%)</string>
+    <string name="pad_trigger_summary">Used only when the device reports L2 / R2 as axes rather than buttons.</string>
+    <string name="pad_repeat_delay_title">Hold to delete: delay before repeating (ms)</string>
+    <string name="pad_repeat_delay_summary">Hold B to keep deleting.</string>
+    <string name="pad_repeat_interval_title">Hold to delete: repeat interval (ms)</string>
+    <string name="pad_repeat_interval_summary">Smaller deletes faster.</string>
+    <string name="pad_roles_category_title">Button roles</string>
+    <string name="pad_roles_category_summary">The same roles in every mode. Hold roles change the character only while held (a role that does nothing in a mode shows an empty pill in the guide). Symbols: while held, the left stick types symbols. The handakuten and small kana roles type numbers in English while held. L3 / R3: previous / next mode (only when clicked without tilting the stick). D-pad: cursor. While converting: ←→ candidates, ↑ longer range, ↓ shorter range.</string>
+    <string name="pad_role_confirm">Enter (confirms while converting)</string>
+    <string name="pad_role_backspace">Delete one character (while converting too: leaves the conversion and deletes)</string>
+    <string name="pad_role_space">Space</string>
+    <string name="pad_role_convert_next">Convert / next suggestion</string>
+    <string name="pad_role_previous_candidate">Previous suggestion</string>
+    <string name="pad_role_touch_keyboard">Touch keyboard (switches between the guide and the touch keys of the mode). Hold to hide the keyboard</string>
+    <string name="pad_role_hold_dakuten">Hold: dakuten (か→が). Upper case in English</string>
+    <string name="pad_role_hold_handakuten">Hold: handakuten (は→ぱ). Numbers in English</string>
+    <string name="pad_role_hold_small">Hold: small kana (つ→っ, や→ゃ). Numbers in English</string>
+    <string name="pad_role_hold_small_or_handakuten">Hold: small kana, handakuten on the は row. Numbers in English</string>
+    <string name="pad_role_hold_uppercase">Hold: upper case (English)</string>
+    <string name="pad_role_hide">Hide the keyboard</string>
+    <string name="pad_role_emoji_jump">Emoji list (in the list: back to the text mode)</string>
+    <string name="pad_emoji_list_strip">D-pad %1$s / %2$s %3$s / %4$s %5$s / %6$s Tabs</string>
+    <string name="pad_role_none">None</string>
+
+    <string name="pad_diag_title">Controller check</string>
+    <string name="pad_diag_intro">Move the sticks and press the buttons. The signals that arrive and what the keyboard decides scroll by below. Tap the text field to try typing with the keyboard.</string>
+    <string name="pad_diag_test_field_hint">Tap here and type with the controller</string>
+    <string name="pad_diag_status_waiting">Waiting for controller input…</string>
+    <string name="pad_diag_clear">Clear</string>
+    <string name="pad_diag_save">Save and share the log</string>
+    <string name="pad_diag_saved">Saved (%1$d lines): %2$s</string>
+    <string name="pad_diag_save_warning_few">Only %1$d lines so far. Move the sticks and press buttons before saving to make the log useful.</string>
+    <string name="pad_diag_no_devices">Android has not found a game controller (no GAMEPAD / JOYSTICK input device).</string>
+    <string name="pad_diag_devices">Controllers found: %1$s</string>
+    <string name="pad_diag_session_lines">Log since this screen opened: %1$d lines (%2$d from the keyboard)</string>
+
+    <string name="pad_ime_banner_not_enabled">TiltBoy is not enabled as a keyboard yet. To type with the controller, enable it first, then switch to it.</string>
+    <string name="pad_ime_banner_not_selected">The current keyboard is not TiltBoy (%1$s), so controller input does not reach it. Switch keyboards.</string>
+    <string name="pad_ime_enable_button">Enable TiltBoy</string>
+    <string name="pad_ime_switch_button">Switch the keyboard to TiltBoy</string>
+    <string name="pad_ime_banner_ok">The keyboard is TiltBoy.</string>
+
+    <string name="pad_check_title">Guided check</string>
+    <string name="pad_check_start">Start the check</string>
+    <string name="pad_check_cancel">Stop</string>
+    <string name="pad_check_step1">1/6 Turn the left stick all the way round</string>
+    <string name="pad_check_step2">2/6 Turn the right stick all the way round</string>
+    <string name="pad_check_step3">3/6 Press A, B, X, Y in that order</string>
+    <string name="pad_check_step4">4/6 Click the left stick (L3). If nothing arrives, tap \"Not arriving (next)\"</string>
+    <string name="pad_check_step5">5/6 Click the right stick (R3). If nothing arrives, tap \"Not arriving (next)\"</string>
+    <string name="pad_check_step6">6/6 Tap the text field above to bring up the keyboard and type \"%1$s\" with the controller (left stick ↑, flick the right stick ← and back)</string>
+    <string name="pad_check_skip">Not arriving (next)</string>
+    <string name="pad_check_result_clicks">Stick clicks: L3 %1$s / R3 %2$s</string>
+    <string name="pad_check_r3_missing">R3 (right stick click) does not arrive. L3 (previous mode) also switches the modes. Everything else works as is.</string>
+    <string name="pad_check_r3_ok">R3 arrives. R3 goes to the next mode, L3 to the previous one (click without tilting the stick).</string>
+    <string name="pad_check_done">Check finished. Log saved (%1$d lines). Send it with \"Save and share the log\".</string>
+    <string name="pad_check_result_sticks">Sticks: screen %1$s / keyboard %2$s</string>
+    <string name="pad_check_result_buttons">Buttons: %1$s</string>
+    <string name="pad_check_result_typed">Typing \"%1$s\": %2$s</string>
+    <string name="pad_check_reached">arrives</string>
+    <string name="pad_check_not_reached">does not arrive</string>
+    <string name="pad_check_progress">Progress: %1$s</string>
+
+    <string name="pad_modes_need_one">Choose at least one mode.</string>
+    <string-array name="pad_modes_entries">
+        <item>Kana</item>
+        <item>English</item>
+        <item>Numbers</item>
+    </string-array>
+    <string-array name="pad_modes_values">
+        <item>kana</item>
+        <item>english</item>
+        <item>number</item>
+    </string-array>
+    <string name="pad_modes_separator">", "</string>
+    <string name="pad_role_hold_dakuten_nokana">Hold: upper case (English)</string>
+    <string name="pad_roles_category_summary_nokana">The same roles in every mode. Hold roles change the character only while held. Symbols: while held, the left stick types symbols. 123: while held, English types numbers. L3 / R3: previous / next mode (only when clicked without tilting the stick).</string>
+    <!-- Amendment 22: the handakuten / small kana roles without kana (numbers in English) -->
+    <string name="pad_role_hold_handakuten_nokana">Hold: numbers (English). Handakuten in kana</string>
+    <string name="pad_role_hold_small_nokana">Hold: numbers (English). Small kana in kana</string>
+    <string name="pad_role_hold_small_or_handakuten_nokana">Hold: numbers (English). Small kana or handakuten in kana</string>
+    <string name="pad_role_kana_only">None (kana-only role)</string>
+    <string name="pad_button_l3">L3 (left stick click)</string>
+    <string name="pad_button_r3">R3 (right stick click)</string>
+    <string name="pad_check_reached_detail">%1$s (%2$s)</string>
+
+    <string name="pad_word_tap_emoji">First</string>
+    <string name="pad_word_confirm">Enter</string>
+    <string name="pad_word_insert">Insert</string>
+    <string name="pad_word_backspace">Delete</string>
+    <string name="pad_word_space">Space</string>
+    <string name="pad_word_convert">Convert</string>
+    <string name="pad_word_next">Next</string>
+    <string name="pad_word_previous">Previous</string>
+    <string name="pad_word_mode">Mode</string>
+    <string name="pad_word_to_text">Text</string>
+    <string name="pad_word_hide">Hide</string>
+    <string name="pad_word_emoji">Emoji</string>
+    <string name="pad_word_list">List</string>
+    <string name="pad_word_back">Back</string>
+    <string name="pad_word_dakuten">゛</string>
+    <string name="pad_word_uppercase">Shift</string>
+    <string name="pad_word_handakuten">゜</string>
+    <string name="pad_word_small">Small</string>
+    <string name="pad_word_small_or_handakuten">Small ゜</string>
+    <string name="pad_word_bar_kana">わをん 記号</string>
+    <string name="pad_word_bar_english">Symbols</string>
+    <string name="pad_word_bar_number">Symbols</string>
+    <string name="pad_word_bar_emoji">Next 32</string>
+    <string name="pad_word_cursor">Cursor</string>
+    <string name="pad_word_move">Move</string>
+    <string name="pad_word_key">Key</string>
+    <string name="pad_word_previous_category">Prev tab</string>
+    <string name="pad_word_next_category">Next tab</string>
+    <string name="pad_word_vowel_a">あ</string>
+    <string name="pad_word_vowel_i">い</string>
+    <string name="pad_word_vowel_u">う</string>
+    <string name="pad_word_vowel_e">え</string>
+    <string name="pad_word_vowel_o">お</string>
+    <string name="pad_word_char_center">Center</string>
+    <string name="pad_word_char_left">Left</string>
+    <string name="pad_word_char_up">Up</string>
+    <string name="pad_word_char_right">Right</string>
+    <string name="pad_word_char_down">Down</string>
+    <string name="pad_word_emoji_left">Left</string>
+    <string name="pad_word_emoji_up">Up</string>
+    <string name="pad_word_emoji_right">Right</string>
+    <string name="pad_word_emoji_down">Down</string>
+
+    <!-- Amendment 15: the kana right stick and the TiltBoy attribution. -->
+    <string name="pad_attribution">TiltBoy is based on Sumire Japanese Keyboard by KazumaProject (MIT License).</string>
+
+    <!-- Amendment 21: R2 is Symbols in every mode (kana's や/わ moved to the grid's ↘ key). Amendment 22: 英字's L1 / R1 read 123 -->
+    <string name="pad_role_ya_wa_layer">Symbols (hold: the left stick types symbols)</string>
+    <string name="pad_word_symbols">Symbols</string>
+    <string name="pad_word_number_hold">123</string>
+
+    <!-- Amendment 18: L3 / R3 step the mode, the symbols layer (R2) in English and numbers -->
+    <string name="pad_role_mode_previous">Previous mode (the checked modes, backwards; switches on release; ignored while the stick is tilted)</string>
+    <string name="pad_role_mode_next">Next mode (the checked modes in turn; switches on release; ignored while the stick is tilted)</string>
+    <string name="pad_word_to_kana">To kana</string>
+    <string name="pad_word_to_english">To ABC</string>
+    <string name="pad_word_to_number">To 123</string>
+    <!-- Amendment 20: Select, the touch keyboard -->
+    <string name="pad_word_touch">Touch</string>
+
+    <!-- Amendment 19: the TiltBoy settings home (the launcher's page), Fine tuning and About -->
+    <string name="tiltboy_home_title">TiltBoy</string>
+    <string name="tiltboy_cat_start">Getting started</string>
+    <string name="tiltboy_setup_title">Set up the keyboard</string>
+    <string name="tiltboy_face_title">Button layout</string>
+    <string name="tiltboy_face_pick">Pick the one that looks like your device</string>
+    <string name="tiltboy_setup_done">Done</string>
+    <string name="tiltboy_setup_not_enabled">Not turned on yet. Press to turn TiltBoy on, then switch the keyboard to it</string>
+    <string name="tiltboy_setup_not_current">Turned on, but not the keyboard in use. Press to switch to TiltBoy</string>
+    <string name="tiltboy_try_title">Try it and check the controller</string>
+    <string name="tiltboy_try_summary">Type here and see whether the sticks and buttons get through</string>
+    <string name="tiltboy_cat_typing">Typing</string>
+    <string name="tiltboy_modes_title">Modes</string>
+    <string name="tiltboy_guide_title">Show the guide</string>
+    <string name="tiltboy_guide_summary">With a controller connected, the guide shows from the start. Select switches to the touch keys and back</string>
+    <string name="tiltboy_cat_words">Words</string>
+    <string name="tiltboy_words_title">Add words</string>
+    <string name="tiltboy_words_summary">Names and other words the conversion does not offer</string>
+    <string name="tiltboy_clear_learning_title">Clear learned conversions</string>
+    <string name="tiltboy_clear_learning_message">Forget every conversion TiltBoy has learned from your typing? This cannot be undone. Words you added stay.</string>
+    <string name="tiltboy_clear_learning_confirm">Clear</string>
+    <string name="tiltboy_clear_learning_cancel">Cancel</string>
+    <string name="tiltboy_clear_learning_done">Learned conversions cleared</string>
+    <string name="tiltboy_cat_more">More</string>
+    <string name="tiltboy_fine_tuning_title">Fine tuning</string>
+    <string name="tiltboy_fine_tuning_summary">Feel (how far to tilt) · button roles</string>
+    <string name="tiltboy_about_title">About</string>
+    <string name="tiltboy_about_summary">Version · licences</string>
+    <string name="tiltboy_version_title">Version</string>
+    <string name="tiltboy_licences_title">Open-source licences</string>
+    <string name="tiltboy_licences_summary">This app, the libraries it uses and the dictionaries, with their full licence texts</string>
+    <string name="tiltboy_dictionary_licences_title">Dictionary licences</string>
+    <string name="tiltboy_dictionary_licences_summary">The dictionaries used for conversion</string>
+    <string name="tiltboy_buttons_category_title">Buttons and sticks</string>
+</resources>
