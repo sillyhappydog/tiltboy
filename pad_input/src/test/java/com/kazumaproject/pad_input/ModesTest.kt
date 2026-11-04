@@ -72,6 +72,21 @@ class ModesTest {
     }
 
     @Test
+    fun opening_in_the_guide_in_a_disabled_mode_moves_to_an_enabled_one_before_any_event() {
+        // v17: Sumire is still in かな, only 英字 and 数字 are checked, no controller event yet.
+        val engine = PadInputEngine(PadConfig(modes = listOf(PadMode.ENGLISH, PadMode.NUMBER), words = TestWords.ja), InputMode.ModeJapanese)
+        assertEquals(PadMode.KANA, engine.padMode)
+        val d = engine.enterEnabledMode()
+        assertEquals(PadMode.ENGLISH, engine.padMode)
+        assertEquals(listOf<PadAction>(PadAction.SwitchMode(InputMode.ModeEnglish)), d.actions)
+        // Already in an enabled mode: nothing happens.
+        assertTrue(engine.enterEnabledMode().actions.isEmpty())
+        val all = PadInputEngine(PadConfig(words = TestWords.ja), InputMode.ModeJapanese)
+        assertTrue(all.enterEnabledMode().actions.isEmpty())
+        assertEquals(PadMode.KANA, all.padMode)
+    }
+
+    @Test
     fun first_run_defaults_follow_the_system_language() {
         assertEquals(PadConfig.ALL_TEXT_MODES, PadConfig.defaultModes("ja", existingInstall = false))
         assertEquals(listOf(PadMode.ENGLISH, PadMode.NUMBER), PadConfig.defaultModes("en", existingInstall = false))

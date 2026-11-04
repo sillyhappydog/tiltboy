@@ -75,10 +75,6 @@ These are the defaults. Button roles can be changed in **Fine tuning**.
 
 Japanese is described in [README.ja.md](README.ja.md).
 
-## Known issues
-
-- With kana turned off in **Modes**, the guide can show the kana keys for a moment when the keyboard opens. The first stick move switches to English.
-
 ## Building
 
 You need JDK 21 and the Android SDK (platform `android-37`, build-tools `37.0.0`, NDK `29.0.14206865`).

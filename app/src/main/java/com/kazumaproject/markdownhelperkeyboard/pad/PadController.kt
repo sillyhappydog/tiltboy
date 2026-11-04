@@ -129,8 +129,16 @@ class PadController(private val host: Host, private val logSource: String = "key
         it.axis == MotionEvent.AXIS_X && (it.source and InputDevice.SOURCE_CLASS_JOYSTICK) != 0
     }
 
-    /** Amendment 25: take the host's current mode before the guide is drawn without a controller event. */
-    fun syncWithHost() = syncEngine()
+    /**
+     * Amendment 25: take the host's current mode before the guide is drawn without a controller event.
+     * v17: if that mode is switched off in 「使うモード」, move to an enabled one now (the host switches
+     * with it), so the first frame shows the mode the user will type in.
+     */
+    fun syncWithHost() {
+        syncEngine()
+        val d = engine.enterEnabledMode()
+        if (d.actions.isNotEmpty()) apply(d)
+    }
 
     /**
      * v12 device check: the keyboard opened in the guide before any controller event. A config

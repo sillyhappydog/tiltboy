@@ -81,7 +81,7 @@ android {
             // TiltBoy (amendment 15): the delivered liteFdroid variant has its own application ID,
             // io.github.sillyhappydog.tiltboy, set exactly (no ".lite" / ".fdroid" suffixes) in
             // androidComponents below, so it installs next to an official Sumire and to Sumire Pad v1-v3.
-            versionNameSuffix "-tiltboy16b"
+            versionNameSuffix "-tiltboy17"
             buildConfigField "boolean", "IS_FDROID", "true"
             buildConfigField "String", "DIST_CHANNEL", "\"fdroid\""
         }

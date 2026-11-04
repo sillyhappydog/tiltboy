@@ -515,6 +515,18 @@ class PadInputEngine(
      * the user switched off. The first controller event then moves to an enabled mode, and the
      * event is handled there.
      */
+    /**
+     * v17: the keyboard opened straight into the guide (amendment 25) while the host is in a text
+     * mode the user switched off (かな with only 英字 and 数字 checked, e.g. after the touch keyboard
+     * or another app left Sumire in かな). Move to an enabled mode before the first frame; until v16
+     * the guide showed the disabled mode until the first controller event ([withEnabledMode]).
+     */
+    fun enterEnabledMode(): PadDecision {
+        if (padMode.isEmoji || padMode in config.textModes()) return PadDecision.NONE
+        val fix = enterMode(returnMode())
+        return PadDecision(fix.actions, fix.note + " (mode not enabled, keyboard opened)")
+    }
+
     private inline fun withEnabledMode(handle: () -> PadDecision): PadDecision {
         val modes = config.textModes()
         // Amendment 20: the emoji wheel is the D-pad fallback's only; with sticks go back to the text mode.
