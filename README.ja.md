@@ -108,6 +108,7 @@ JDK 21 と Android SDK（platform `android-37`、build-tools `37.0.0`、NDK `29.
 ## クレジット
 
 - **Sumire 日本語キーボード**（作者 Kazuma Naka さん、[KazumaProject/JapaneseKeyboard](https://github.com/KazumaProject/JapaneseKeyboard)、MIT）。TiltBoy は Sumire v1.7.139（コミット `16915fb`）から始めています。かな漢字変換、辞書、タッチのキーボード、絵文字の一覧は Sumire のものです。TiltBoy は非公式のフォークなので、TiltBoy の問題は Sumire ではなく、こちらに報告してください。Sumire 本来の README は [README.sumire.md](README.sumire.md) に残してあります。
+- AI assisted（AI を使って作っています）
 - 辞書などの第三者の素材: [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)、[docs/licenses/](docs/licenses/)、アプリの「このアプリについて」（バージョン・ライセンス）
 - **関連研究。** いちばん近いのは、2 本のジョイスティックでフリック入力のように日本語を打つ研究 JoyFlick です。横山海青・高倉礼・志築文太郎・川口一画「フリック入力に基づく 2 本の押し込み機能付きジョイスティックを用いたテキスト入力手法」ヒューマンインタフェース学会論文誌 23(4), 2021。英語版は Yokoyama, Takakura, Shizuki, INTERACT 2021（[公開版](https://inria.hal.science/hal-04292388)）。JoyFlick は PC と Switch Pro コントローラーで動く試作で、かな漢字変換はありません。TiltBoy は、その論文の「人は左右のスティックをほぼ同時に離す」という結果を取り入れ、キーをはじき終わりではなく、はじき始めの時点で決めています。
 

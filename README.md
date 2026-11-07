@@ -97,6 +97,7 @@ Where things are:
 ## Credits
 
 - **Sumire Japanese Keyboard** by Kazuma Naka ([KazumaProject/JapaneseKeyboard](https://github.com/KazumaProject/JapaneseKeyboard), MIT). TiltBoy starts from Sumire v1.7.139 (commit `16915fb`). The conversion engine, the dictionaries, the touch keyboard and the emoji list are Sumire's work. TiltBoy is an unofficial fork, so please report TiltBoy problems here, not to Sumire. Sumire's own README is kept as [README.sumire.md](README.sumire.md).
+- AI assisted.
 - Dictionaries and other third-party material: [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md), [docs/licenses/](docs/licenses/) and **About → licences** in the app.
 - **Related work.** The closest idea is JoyFlick, a research prototype for flick-style Japanese input with two joysticks: Yokoyama, Takakura, Shizuki, "JoyFlick: Japanese Text Entry Using Dual Joysticks for Flick Input Users", INTERACT 2021 ([open version](https://inria.hal.science/hal-04292388)). JoyFlick runs on a PC with a Switch Pro Controller and has no kana-kanji conversion. TiltBoy uses one of its findings: people let go of both sticks at almost the same moment, so the key is fixed when a flick starts, not when it ends.
 
