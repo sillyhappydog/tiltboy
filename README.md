@@ -8,6 +8,8 @@ It types English and numbers, and Japanese with kana-kanji conversion.
 
 [日本語の説明はこちら](README.ja.md)
 
+![Typing "Hello, Reddit!" in Discord on an Anbernic RG477V with TiltBoy, at real speed](docs/images/demo.gif)
+
 Honest note: typing with sticks is slower than a touchscreen. TiltBoy is for the times you'd rather not let go of the controller.
 
 ## What it does

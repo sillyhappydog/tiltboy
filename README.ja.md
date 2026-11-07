@@ -8,6 +8,8 @@ Android の携帯ゲーム機で、スティックを使って文字を打つキ
 
 [English](README.md)
 
+![Anbernic RG477V の Discord で、TiltBoy を使って「Hello, Reddit!」と打っているところ（実際の速さ）](docs/images/demo.gif)
+
 先に正直に書いておくと、スティックで打つのはタッチより遅いです。コントローラーから手を離したくないときのためのキーボードです。
 
 ## できること
