@@ -1,14 +1,12 @@
-<img src="docs/images/icon.png" width="96" align="right" alt="TiltBoy のアイコン">
-
 # TiltBoy Keyboard
+
+<img src="docs/images/icon.png" width="96" align="right" alt="TiltBoy のアイコン">
 
 Android の携帯ゲーム機で、スティックを使って文字を打つキーボードです。
 左スティックでキーを選び、右スティックを倒して字を打ちます。
 日本語（かな漢字変換つき）、英字、数字が打てます。
 
 [English](README.md)
-
-![Anbernic RG477V で「にほんご」を打って変換しているところ](docs/images/device_japanese.png)
 
 先に正直に書いておくと、スティックで打つのはタッチより遅いです。コントローラーから手を離したくないときのためのキーボードです。
 

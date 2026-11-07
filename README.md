@@ -1,14 +1,12 @@
-<img src="docs/images/icon.png" width="96" align="right" alt="TiltBoy icon">
-
 # TiltBoy Keyboard
+
+<img src="docs/images/icon.png" width="96" align="right" alt="TiltBoy icon">
 
 A keyboard for Android game handhelds that you type on with the analog sticks.
 The left stick picks a key and the right stick flicks the letter.
 It types English and numbers, and Japanese with kana-kanji conversion.
 
 [日本語の説明はこちら](README.ja.md)
-
-![TiltBoy on an Anbernic RG477V: "tilt boy" typed into a search field](docs/images/device_english.png)
 
 Honest note: typing with sticks is slower than a touchscreen. TiltBoy is for the times you'd rather not let go of the controller.
 
